@@ -3,10 +3,10 @@ defmodule Rumbl.Account.User do
   import Ecto.Changeset
 
   schema "users" do
-    field :email, :string
-    field :password, :string
-    field :username, :string
     field :name, :string
+    field :username, :string
+    field :password, :string, virtual: true
+    field :password_hash, :string
 
     timestamps()
   end
@@ -17,4 +17,5 @@ defmodule Rumbl.Account.User do
     |> cast(attrs, [:username, :email, :password])
     |> validate_required([:username, :email, :password])
   end
+  
 end
