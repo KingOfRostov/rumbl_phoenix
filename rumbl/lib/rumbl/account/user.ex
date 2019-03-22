@@ -1,7 +1,7 @@
 defmodule Rumbl.Account.User do
   use Ecto.Schema
   import Ecto.Changeset
-
+  
   schema "users" do
     field :name, :string
     field :username, :string
@@ -12,10 +12,10 @@ defmodule Rumbl.Account.User do
   end
 
   @doc false
-  def changeset(user, attrs) do
+  def changeset(user, params \\ %{}) do
     user
-    |> cast(attrs, [:username, :email, :password])
-    |> validate_required([:username, :email, :password])
+    |> cast(params, [:username, :name, ])
+    |> validate_required([:username, :name] )
   end
   
 end
